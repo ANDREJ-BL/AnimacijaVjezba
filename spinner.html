@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Animacija vjezba</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #050210;
+        }
+
+        .krug {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: linear-gradient(#f07e6e, #84cdfa, #5ad1cd);
+            animation: animate 1.2s linear infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .krug span {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+        }
+
+        .krug span:nth-child(1) {
+            filter: blur(5px);
+        }
+
+        .krug span:nth-child(2) {
+            filter: blur(10px);
+        }
+
+        .krug span:nth-child(3) {
+            filter: blur(25px);
+        }
+
+        .krug span:nth-child(4) {
+            filter: blur(50px);
+        }
+
+        .krug:after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            background: #050210;
+            border-radius: 50%;
+        }
+
+        .krug .pulse {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            background: rgb(58, 57, 57);
+            z-index: 1000;
+            border-radius: 50%;
+            animation: pulse 1.2s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 1;
+            }
+
+            100% {
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="krug">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="pulse"></span>
+
+    </div>
+</body>
+
+</html>
